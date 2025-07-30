@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Button, SafeAreaView } from 'react-native'
 import React from 'react'
-
+import { getUserInfo, logoutUser } from '../services/authService'
 const ProfileScreen = () => {
 
     // TODO: handle logout
-    const handleLogout = () => {}
+    const handleLogout = () => { logoutUser() }
 
     return (
         <SafeAreaView>
@@ -12,8 +12,8 @@ const ProfileScreen = () => {
                 <Text>Profile</Text>
 
                 {/* TODO: Show logged in user info */}
-                <Text>Email here</Text>
-                <Text>Username here</Text>
+                <Text>{getUserInfo()?.email}</Text>
+                <Text>{getUserInfo()?.uid}</Text>
 
                 <Button 
                     title="Sign Out"
